@@ -116,7 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
         btnLogout.addEventListener('click', () => {
             localStorage.removeItem('active_session');
             evaluateSession();
-            window.location.hash = '#hero'; // Retornar visualmente al inicio
+
+            // Ajuste Senior para Multi-página: Redirigir físicamente al Index
+            window.location.href = 'index.html';
         });
     }
 

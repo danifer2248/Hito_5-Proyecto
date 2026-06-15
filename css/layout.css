@@ -14,11 +14,13 @@
     transition: var(--transition-smooth);
 }
 
+/* Modificado: Ahora fluye como fila por defecto en móviles */
 .header-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
     align-items: center;
-    gap: var(--spacing-sm);
     padding: var(--spacing-sm);
     max-width: 1200px;
     margin: 0 auto;
@@ -33,7 +35,7 @@
     gap: 0.5rem;
 }
 
-/* Navegación móvil */
+/* Navegación móvil base */
 .main-nav ul {
     display: flex;
     gap: var(--spacing-sm);
@@ -59,16 +61,36 @@
     gap: var(--spacing-sm);
 }
 
-/* Ajustes de Layout para Escritorio (Header) */
+/* --- AJUSTES DE LAYOUT PARA ESCRITORIO (PC) --- */
 @media (min-width: 768px) {
     .header-container {
-        flex-direction: row;
-        justify-content: space-between;
+        flex-wrap: nowrap;
         padding: var(--spacing-sm) var(--spacing-md);
     }
 
+    /* Reseteo estricto de posiciones móviles para pantallas grandes */
+    .logo { 
+        order: 0; 
+    }
+    
+    .main-nav { 
+        order: 0;
+        display: block !important;
+        position: static;
+        width: auto;
+        box-shadow: none;
+        border: none;
+        padding: 0;
+    }
+
     .main-nav ul {
+        flex-direction: row;
         gap: var(--spacing-md);
+    }
+
+    .header-actions { 
+        order: 0; 
+        margin-left: 0; 
     }
 }
 
@@ -136,7 +158,6 @@
 .main-footer {
     background-color: var(--secondary-color);
     color: #ffffff;
-    /* El footer mantiene contraste fijo */
     padding: var(--spacing-md) 0;
     margin-top: var(--spacing-lg);
 }
@@ -168,10 +189,8 @@
 .social-nav a:hover {
     color: var(--primary-color);
     transform: translateY(-3px);
-    /* Pequeño salto interactivo */
 }
 
-/* Ajustes de Layout para Escritorio (Footer) */
 @media (min-width: 768px) {
     .footer-container {
         flex-direction: row;
@@ -180,8 +199,36 @@
     }
 }
 
+/* Optimización del Footer en Modo Oscuro */
+[data-theme="dark"] .main-footer {
+    background-color: #1a1a1a;          
+    border-top: 1px solid var(--border-color, #2d2d2d);       
+}
+
+[data-theme="dark"] .main-footer p {
+    color: #e0e0e0 !important;
+}
+
+[data-theme="dark"] .social-nav a {
+    color: #e0e0e0 !important;
+    background-color: #2d2d2d;          
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    transition: var(--transition-fast);
+}
+
+[data-theme="dark"] .social-nav a:hover {
+    background-color: var(--primary-color, #ff8400); 
+    color: #ffffff !important;          
+}
+
+
 /* ==========================================================================
-   ESTILOS DEL COMPONENTE NAV RESPONSIVO
+   ESTILOS DEL COMPONENTE NAV RESPONSIVO (MÓVIL)
    ========================================================================== */
 
 /* Por defecto en Escritorio (PC) el botón es invisible */
@@ -200,43 +247,49 @@
     color: var(--primary-color);
 }
 
-/* Media Query para Tablets y Celulares (Pantallas angostas) */
+/* Media Query exclusivo para pantallas angostas */
 @media (max-width: 768px) {
     .main-header {
-        position: relative; /* Bloque de contención para el menú absoluto */
+        position: relative;
     }
 
-    /* Mostrar botón hamburguesa */
-    .menu-toggle-btn {
-        display: block;
-        order: 2; /* Forzar orden posicional al lado de las acciones */
+    /* CONTROL DE ORDEN VISUAL EN LA MISMA LÍNEA */
+    .logo {
+        order: 1; /* Logotipo a la izquierda */
     }
 
     .header-actions {
-        order: 3;
+        order: 2;
+        margin-left: auto; /* Empuja el botón de modo oscuro hacia la derecha */
+        gap: 0.3rem;
     }
 
-    /* Transformar el menú de navegación en un panel flotante desplegable */
+    .menu-toggle-btn {
+        display: block; /* Se hace visible */
+        order: 3;        /* Se posiciona inmediatamente al lado del modo oscuro */
+        margin-left: 0.4rem; 
+    }
+
+    /* El menú desplegable se va abajo ocupando el 100% */
     .main-nav {
-        display: none; /* Oculto por defecto */
+        display: none; 
         position: absolute;
-        top: 100%; /* Se posiciona exactamente debajo del header */
+        top: 100%; 
         left: 0;
         width: 100%;
-        background-color: var(--header-bg, #ffffff);
+        background-color: var(--bg-card, #ffffff);
         border-top: 1px solid rgba(0, 0, 0, 0.05);
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
         padding: 1.5rem 0;
         z-index: 999;
+        order: 4; /* Forzado a envolver en la parte inferior */
     }
 
-    /* Clase que inyecta JavaScript al hacer click */
     .main-nav.nav-open {
         display: block;
         animation: slideDownMenu 0.25s ease-out forwards;
     }
 
-    /* Reestructurar la lista horizontal de PC a vertical para celular */
     .main-nav ul {
         flex-direction: column;
         align-items: center;
@@ -257,7 +310,11 @@
     }
 }
 
-/* Animación de entrada fluida para el menú desplegable */
+/* Elimina el espacio fantasma del li cuando el botón Ingresar se oculta */
+.main-nav ul li:has(#nav-auth-link.hidden) {
+    display: none;
+}
+
 @keyframes slideDownMenu {
     from {
         opacity: 0;

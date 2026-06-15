@@ -281,6 +281,17 @@
     /* Oculto por defecto */
 }
 
+.auth-form .btn-submit {
+    margin-top: 1.5rem; /* Equivale a unos 24px de separación */
+    width: 100%;        /* Asegura que ocupe todo el ancho del contenedor */
+    display: block;     /* Cambia el comportamiento de línea a bloque para aplicar bien el margen */
+}
+
+/* Por si acaso, asegúrate de que los grupos de formulario tengan su propia separación */
+.auth-form .form-group {
+    margin-bottom: 1.2rem; /* Separación saludable entre el email y la contraseña */
+}
+
 .auth-form.active-form {
     display: block;
     /* Solo se renderiza el formulario activo */
@@ -477,4 +488,6 @@ select.valid {
 
 .btn-card-adopt:hover {
     background-color: var(--primary-dark, #d35400);
+    color: #ffebdc !important; /* Un tono crema / naranja pastel muy claro de alta visibilidad */
+    text-decoration: none;
 }

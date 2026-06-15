@@ -1,0 +1,176 @@
+/* ==========================================================================
+   ESTRUCTURA DE CONTENEDORES Y LAYOUT (Mobile-First)
+   ========================================================================== */
+
+/* --- 1. ENCABEZADO PRINCIPAL (HEADER) --- */
+.main-header {
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que se mantenga sobre el carrusel */
+    box-shadow: var(--box-shadow);
+    transition: var(--transition-smooth);
+}
+
+.header-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Navegación móvil */
+.main-nav ul {
+    display: flex;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.main-nav a {
+    font-weight: 600;
+    color: var(--secondary-color);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.95rem;
+}
+
+.main-nav a:hover {
+    color: var(--primary-color);
+}
+
+/* Acciones del Header (Perfil, Botón de Tema) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+/* Ajustes de Layout para Escritorio (Header) */
+@media (min-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .main-nav ul {
+        gap: var(--spacing-md);
+    }
+}
+
+
+/* --- 2. SECCIÓN DESTACADA DE AUTENTICACIÓN --- */
+.highlight-bg {
+    background-color: var(--bg-highlight);
+    transition: var(--transition-smooth);
+}
+
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+
+/* --- 3. MAQUETACIÓN DE FORMULARIOS RECOLECTORES --- */
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.main-form {
+    background-color: var(--bg-card);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+    margin-top: var(--spacing-md);
+    transition: var(--transition-smooth);
+}
+
+/* Grid dinámico para los campos del formulario */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 Sola columna en dispositivos móviles */
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+/* Transformación a 2 columnas en pantallas medianas/grandes */
+@media (min-width: 768px) {
+    .main-form {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+
+    .form-row {
+        grid-template-columns: repeat(2, 1fr); /* 2 Columnas idénticas en Escritorio */
+        gap: var(--spacing-md);
+    }
+}
+
+
+/* --- 4. PIE DE PÁGINA SEMÁNTICO (FOOTER) --- */
+.main-footer {
+    background-color: var(--secondary-color);
+    color: #ffffff; /* El footer mantiene contraste fijo */
+    padding: var(--spacing-md) 0;
+    margin-top: var(--spacing-lg);
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+.social-nav {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.social-nav a {
+    color: #ffffff;
+    font-size: 1.3rem;
+    display: inline-block;
+    transition: var(--transition-fast);
+}
+
+.social-nav a:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px); /* Pequeño salto interactivo */
+}
+
+/* Ajustes de Layout para Escritorio (Footer) */
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}

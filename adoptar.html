@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Inicia tu proceso de adopción en Huellas Felices.">
+    <title>Huellas Felices | Adoptar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/validation.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-paw"></i> Huellas Felices</a>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html#hero">Inicio</a></li>
+                    <li><a href="index.html#nosotros">Nosotros</a></li>
+                    <li><a href="ingresar.html" id="nav-auth-link">Ingresar</a></li>
+                    <li><a href="adoptar.html">Adoptar</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <span id="user-profile" class="user-profile hidden">
+                    <i class="fa-solid fa-user"></i> <span id="user-display-name"></span>
+                    <button id="btn-logout" class="btn-logout" aria-label="Cerrar sesión">Salir</button>
+                </span>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo oscuro/claro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container form-container reveal-element">
+            <div class="text-center">
+                <span class="section-subtitle">Formulario de Solicitud</span>
+                <h2>Inicia tu proceso de adopción</h2>
+                <p>Por favor, introduce datos reales. Nuestro equipo revisará la información.</p>
+            </div>
+
+            <form id="adoption-form" class="main-form" novalidate>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adopt-name">Nombre Completo <span class="required">*</span></label>
+                        <input type="text" id="adopt-name" name="name" placeholder="Tu nombre y apellido">
+                        <span class="error-message" id="error-name" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="adopt-email">Email de Contacto <span class="required">*</span></label>
+                        <input type="email" id="adopt-email" name="email" placeholder="correo@dominio.com">
+                        <span class="error-message" id="error-email" aria-live="polite"></span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="adopt-phone">Teléfono Móvil <span class="required">*</span></label>
+                        <input type="tel" id="adopt-phone" name="phone" placeholder="Ej: 60000000">
+                        <span class="error-message" id="error-phone" aria-live="polite"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="adopt-dog">¿Qué tipo de perrito buscas? <span class="required">*</span></label>
+                        <select id="adopt-dog" name="dog_preference">
+                            <option value="">Selecciona una opción</option>
+                            <option value="cachorro">Cachorro (0 - 1 año)</option>
+                            <option value="joven">Joven (1 - 4 años)</option>
+                            <option value="adulto">Adulto/Senior</option>
+                        </select>
+                        <span class="error-message" id="error-dog" aria-live="polite"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="adopt-msg">Cuéntanos un poco sobre tu hogar</label>
+                    <textarea id="adopt-msg" name="message" rows="4" placeholder="¿Tienes patio?, ¿vives en departamento?"></textarea>
+                </div>
+
+                <div id="form-global-feedback" class="form-feedback hidden" aria-live="assertive"></div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn-submit-large">Enviar Solicitud de Adopción</button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Huellas Felices - Proyecto Académico.</p>
+            <nav class="social-nav">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+</html>

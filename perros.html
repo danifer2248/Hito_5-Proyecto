@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Conoce a los perritos rescatados en Huellas Felices que buscan un hogar responsable.">
+    <title>Huellas Felices | Nuestros Perros</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <!-- Scripts globales diferidos -->
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="index.html" class="logo"><i class="fa-solid fa-paw"></i> Huellas Felices</a>
+            <nav class="main-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="perros.html" class="active-nav">Perros</a></li>
+                    <li><a href="ingresar.html" id="nav-auth-link">Ingresar</a></li>
+                    <li><a href="adoptar.html">Adoptar</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <span id="user-profile" class="user-profile hidden">
+                    <i class="fa-solid fa-user"></i> <span id="user-display-name"></span>
+                    <button id="btn-logout" class="btn-logout" aria-label="Cerrar sesión">Salir</button>
+                </span>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo oscuro/claro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="section-padding">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-subtitle">Nuestros Rescatados</span>
+                <h2>Perritos buscando un hogar</h2>
+                <p class="lead-text">Todos nuestros peludos se entregan vacunados, desparasitados y con esterilización
+                    garantizada.</p>
+            </div>
+
+            <!-- Contenedor Rejilla (Grid de Tarjetas) -->
+            <div class="dogs-grid">
+
+                <!-- Tarjeta 1 -->
+                <article class="dog-card reveal-element">
+                    <div class="dog-image-container">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=500"
+                            alt="Perro llamado Max">
+                        <span class="dog-badge badge-puppy">Cachorro</span>
+                    </div>
+                    <div class="dog-card-content">
+                        <h3>Max</h3>
+                        <ul class="dog-features">
+                            <li><i class="fa-solid fa-dna"></i> <strong>Raza:</strong> Mestizo Retriever</li>
+                            <li><i class="fa-solid fa-cake-candles"></i> <strong>Edad:</strong> 8 Meses</li>
+                            <li><i class="fa-solid fa-ruler-combined"></i> <strong>Tamaño:</strong> Mediano</li>
+                        </ul>
+                        <p class="dog-description">Es sumamente juguetón, le encanta correr por el césped y convive
+                            perfectamente con otros perros y niños pequeños.</p>
+                        <a href="adoptar.html" class="btn-card-adopt">Adopta ya <i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 2 -->
+                <article class="dog-card reveal-element">
+                    <div class="dog-image-container">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=500"
+                            alt="Perra llamada Luna">
+                        <span class="dog-badge badge-young">Joven</span>
+                    </div>
+                    <div class="dog-card-content">
+                        <h3>Luna</h3>
+                        <ul class="dog-features">
+                            <li><i class="fa-solid fa-dna"></i> <strong>Raza:</strong> Tipo Border Collie</li>
+                            <li><i class="fa-solid fa-cake-candles"></i> <strong>Edad:</strong> 2 Años</li>
+                            <li><i class="fa-solid fa-ruler-combined"></i> <strong>Tamaño:</strong> Mediano</li>
+                        </ul>
+                        <p class="dog-description">Luna es muy inteligente y activa. Necesita una familia que disfrute
+                            dar paseos largos y jugar con la pelota.</p>
+                        <a href="adoptar.html" class="btn-card-adopt">Adopta ya <i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </article>
+
+                <!-- Tarjeta 3 -->
+                <article class="dog-card reveal-element">
+                    <div class="dog-image-container">
+                        <img src="https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=500"
+                            alt="Perro llamado Rocco">
+                        <span class="dog-badge badge-adult">Adulto</span>
+                    </div>
+                    <div class="dog-card-content">
+                        <h3>Rocco</h3>
+                        <ul class="dog-features">
+                            <li><i class="fa-solid fa-dna"></i> <strong>Raza:</strong> Mestizo de Boxer</li>
+                            <li><i class="fa-solid fa-cake-candles"></i> <strong>Edad:</strong> 5 Años</li>
+                            <li><i class="fa-solid fa-ruler-combined"></i> <strong>Tamaño:</strong> Grande</li>
+                        </ul>
+                        <p class="dog-description">Un caballero de cuatro patas. Tranquilo, obediente, ideal para vivir
+                            en casas familiares o departamentos espaciosos.</p>
+                        <a href="adoptar.html" class="btn-card-adopt">Adopta ya <i class="fa-solid fa-heart"></i></a>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Huellas Felices - Proyecto Académico.</p>
+            <nav class="social-nav">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-instagram"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+
+</html>

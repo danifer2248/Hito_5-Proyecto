@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Huellas Felices - Conectando familias con su mejor amigo. Adopta un perro rescatado y dale una segunda oportunidad.">
+    <meta name="keywords" content="adopcion de perros, refugio de animales, mascotas, rescatados, huellas felices">
+    <meta name="author" content="Proyecto Académico">
+    <title>Huellas Felices | Adopción de Perros</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+
+    <script defer src="js/theme.js"></script>
+    <script defer src="js/carousel.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/validation.js"></script>
+    <script defer src="js/main.js"></script>
+</head>
+
+<body>
+
+    <header class="main-header">
+        <div class="header-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-paw"></i> Huellas Felices
+            </a>
+
+            <nav class="main-nav" aria-label="Navegación principal">
+                <ul>
+                    <li><a href="#hero">Inicio</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#auth-section" id="nav-auth-link">Ingresar</a></li>
+                    <li><a href="#adopcion">Adoptar</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <span id="user-profile" class="user-profile hidden">
+                    <i class="fa-solid fa-user"></i> <span id="user-display-name"></span>
+                    <button id="btn-logout" class="btn-logout" aria-label="Cerrar sesión">Salir</button>
+                </span>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar modo oscuro/claro">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-carousel" aria-label="Carrusel de perros rescatados">
+            <div class="carousel-track-container">
+                <div class="carousel-track">
+                    <div class="carousel-slide active">
+                        <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&q=80&w=1200"
+                            alt="Perro feliz corriendo en el parque">
+                        <div class="carousel-caption">
+                            <h1>Un hogar cambia una vida</h1>
+                            <p>Miles de colitas moviéndose esperan por una oportunidad. ¡Sé su héroe hoy!</p>
+                            <a href="#adopcion" class="btn-cta">Conece a nuestros perros</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1537151625747-768eb64519f2?auto=format&fit=crop&q=80&w=1200"
+                            alt="Cachorro mirando fijamente a la cámara">
+                        <div class="carousel-caption">
+                            <h1>Conectando familias con su mejor amigo</h1>
+                            <p>No compres uno de raza, adopta uno sin casa. Amor incondicional garantizado.</p>
+                            <a href="#adopcion" class="btn-cta">Conece a nuestros perros</a>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&q=80&w=1200"
+                            alt="Perro feliz con la lengua afuera">
+                        <div class="carousel-caption">
+                            <h1>Historias de éxito que inspiran</h1>
+                            <p>Ellos ya sufrieron bastante en las calles. Es momento de escribir un nuevo final feliz.
+                            </p>
+                            <a href="#adopcion" class="btn-cta">Conece a nuestros perros</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-btn btn-prev" aria-label="Imagen anterior">&#10094;</button>
+            <button class="carousel-btn btn-next" aria-label="Siguiente imagen">&#10095;</button>
+        </section>
+
+        <section id="nosotros" class="section-padding reveal-element">
+            <div class="container text-center">
+                <span class="section-subtitle">¿Quiénes somos?</span>
+                <h2>Nuestra Misión</h2>
+                <p class="lead-text">
+                    En <strong>Huellas Felices</strong>, nos dedicamos al rescate, rehabilitación y reubicación de
+                    perritos en situaciones de vulnerabilidad, maltrato o abandono.
+                </p>
+                <div class="value-proposition">
+                    <p class="highlight-text">"Conectando familias con su mejor amigo"</p>
+                    <p>
+                        Creemos firmemente que cada adopción es un acto de amor que transforma dos vidas: la del animal
+                        rescatado y la de la familia que le abre las puertas de su hogar. Nuestro proceso asegura un
+                        match perfecto basado en el estilo de vida y necesidades de ambas partes.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="auth-section" class="section-padding reveal-element highlight-bg">
+            <div class="container auth-wrapper">
+
+                <div id="auth-logged-out" class="auth-box-container">
+                    <div class="auth-tabs">
+                        <button id="tab-login" class="auth-tab active">Iniciar Sesión</button>
+                        <button id="tab-register" class="auth-tab">Registrarse</button>
+                    </div>
+
+                    <form id="form-login" class="auth-form active-form" novalidate>
+                        <h3>Ingresa a tu cuenta</h3>
+                        <div class="form-group">
+                            <label for="login-email">Correo Electrónico</label>
+                            <input type="email" id="login-email" required placeholder="ejemplo@correo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Contraseña</label>
+                            <input type="password" id="login-password" required placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="btn-submit">Ingresar</button>
+                    </form>
+
+                    <form id="form-register" class="auth-form" novalidate>
+                        <h3>Crea una cuenta nueva</h3>
+                        <div class="form-group">
+                            <label for="reg-name">Nombre Completo</label>
+                            <input type="text" id="reg-name" required placeholder="Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-email">Correo Electrónico</label>
+                            <input type="email" id="reg-email" required placeholder="ejemplo@correo.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="reg-role">¿Cuál es tu rol?</label>
+                            <select id="reg-role" required>
+                                <option value="Adoptante">Quiero adoptar (Adoptante)</option>
+                                <option value="Admin">Administrador del Refugio (Admin)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-submit">Registrarme</button>
+                    </form>
+                </div>
+
+                <div id="auth-logged-in" class="auth-box-container text-center hidden">
+                    <i class="fa-solid fa-circle-check success-icon"></i>
+                    <h3>¡Sesión Activa Detectada!</h3>
+                    <p>Estás navegado con el rol de: <strong id="session-role-display"></strong></p>
+                    <p class="info-text">Ya puedes rellenar el formulario de adopción con tus credenciales validadas de
+                        forma automática.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="adopcion" class="section-padding reveal-element">
+            <div class="container form-container">
+                <div class="text-center">
+                    <span class="section-subtitle">Formulario de Solicitud</span>
+                    <h2>Inicia tu proceso de adopción</h2>
+                    <p>Por favor, introduce datos reales. Nuestro equipo revisará la información exhaustivamente.</p>
+                </div>
+
+                <form id="adoption-form" class="main-form" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adopt-name">Nombre Completo <span class="required">*</span></label>
+                            <input type="text" id="adopt-name" name="name" placeholder="Tu nombre y apellido">
+                            <span class="error-message" id="error-name" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="adopt-email">Email de Contacto <span class="required">*</span></label>
+                            <input type="email" id="adopt-email" name="email" placeholder="correo@dominio.com">
+                            <span class="error-message" id="error-email" aria-live="polite"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="adopt-phone">Teléfono Móvil <span class="required">*</span></label>
+                            <input type="tel" id="adopt-phone" name="phone"
+                                placeholder="Ej: 60000000 (Mínimo 8 dígitos)">
+                            <span class="error-message" id="error-phone" aria-live="polite"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="adopt-dog">¿Qué tipo de perrito buscas? <span class="required">*</span></label>
+                            <select id="adopt-dog" name="dog_preference">
+                                <option value="">Selecciona una opción</option>
+                                <option value="cachorro">Cachorro (0 - 1 año)</option>
+                                <option value="joven">Joven (1 - 4 años)</option>
+                                <option value="adulto">Adulto/Senior (Más de 5 años)</option>
+                            </select>
+                            <span class="error-message" id="error-dog" aria-live="polite"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="adopt-msg">Cuéntanos un poco sobre tu hogar y espacio disponible</label>
+                        <textarea id="adopt-msg" name="message" rows="4"
+                            placeholder="¿Tienes patio?, ¿vives en departamento?, ¿tienes otras mascotas?"></textarea>
+                    </div>
+
+                    <div id="form-global-feedback" class="form-feedback hidden" aria-live="assertive"></div>
+
+                    <div class="text-center">
+                        <button type="submit" class="btn-submit-large">Enviar Solicitud de Adopción</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <p>&copy; 2026 Huellas Felices - Proyecto Académico de Tecnologías Web Avanzadas.</p>
+
+            <nav class="social-nav" aria-label="Enlaces a redes sociales">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                    aria-label="Visítanos en Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                    aria-label="Síguenos en Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                    aria-label="Conéctanos en LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </nav>
+        </div>
+    </footer>
+
+</body>
+
+</html>

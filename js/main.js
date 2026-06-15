@@ -1,10 +1,9 @@
 /**
  * ==========================================================================
- * ORQUESTADOR GLOBAL Y SCROLL REVEAL (Huellas Felices)
+ * ORQUESTADOR GLOBAL, RESPONSIVE Y SCROLL REVEAL (Huellas Felices)
  * ==========================================================================
- * Este script coordina la inicialización de los componentes globales del sitio
- * y ejecuta la animación de revelado asíncrono utilizando la API nativa 
- * 'Intersection Observer', garantizando un rendimiento óptimo de la GPU.
+ * Este script coordina la inicialización de los componentes globales del sitio,
+ * controla el menú de navegación adaptativo y ejecuta la animación de revelado.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -13,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 2. Optimizar Accesibilidad y Comportamiento de Enlaces de Anclaje (Smooth Scroll)
     initAnchorOptimization();
+
+    // 3. Inicializar Menú Hamburguesa Adaptativo para Móviles
+    initResponsiveMenu();
 
     // Mensaje de diagnóstico para consola (Práctica recomendada en desarrollo)
     console.log('🐾 Huellas Felices: Sistema central inicializado correctamente.');
@@ -25,30 +27,23 @@ document.addEventListener('DOMContentLoaded', () => {
 function initScrollReveal() {
     const elementsToReveal = document.querySelectorAll('.reveal-element');
 
-    // Si no existen elementos configurados, salimos prematuramente para evitar desperdicio de recursos
     if (elementsToReveal.length === 0) return;
 
-    // Configuración del cuadrante de detección del Viewport
     const observerOptions = {
-        root: null,             // Utiliza el viewport del navegador como área de referencia
-        rootMargin: '0px 0px -80px 0px', // Activa la animación 80px antes de que el elemento toque el fondo
-        threshold: 0.15         // Se dispara cuando el 15% del volumen del elemento es visible
+        root: null,
+        rootMargin: '0px 0px -80px 0px',
+        threshold: 0.15
     };
 
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // Validar si el elemento ha entrado en la zona de intersección
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-
-                // Patrón de optimización Senior: Dejamos de observar el elemento ya animado 
-                // para liberar memoria RAM y ciclos de procesamiento de la CPU.
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Registrar de forma masiva todos los hooks de animación en el observador
     elementsToReveal.forEach(element => {
         revealObserver.observe(element);
     });
@@ -65,7 +60,6 @@ function initAnchorOptimization() {
         link.addEventListener('click', function (e) {
             const targetSelector = this.getAttribute('href');
 
-            // Salvaguarda por si el href está vacío o es un enlace muerto de retorno
             if (targetSelector === '#') return;
 
             const targetSection = document.querySelector(targetSelector);
@@ -73,23 +67,64 @@ function initAnchorOptimization() {
             if (targetSection) {
                 e.preventDefault();
 
-                // Ejecución del desplazamiento suave controlado por hardware
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
                     block: 'start'
                 });
 
-                // Gestión de accesibilidad (Mover el foco real para lectores de pantalla)
                 setTimeout(() => {
                     targetSection.focus({ preventScroll: true });
 
-                    // Si el elemento no es enfocable nativamente (como un <section>), le inyectamos dinámicamente un tabindex alterno
                     if (document.activeElement !== targetSection) {
                         targetSection.setAttribute('tabindex', '-1');
                         targetSection.focus({ preventScroll: true });
                     }
-                }, 600); // Delay sincronizado con la inercia visual del scroll
+                }, 600);
             }
         });
+    });
+}
+
+/**
+ * Controla el despliegue del menú hamburguesa en dispositivos móviles
+ * y la accesibilidad ARIA del botón interactivo.
+ */
+function initResponsiveMenu() {
+    const menuToggleBtn = document.getElementById('menu-toggle-btn');
+    const mainNav = document.getElementById('main-nav');
+
+    if (!menuToggleBtn || !mainNav) return;
+
+    // Escuchador para abrir y cerrar el menú
+    menuToggleBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('nav-open');
+
+        const isOpen = mainNav.classList.contains('nav-open');
+        menuToggleBtn.setAttribute('aria-expanded', isOpen);
+
+        // Mutar el icono dinámicamente (Barras <=> Equis)
+        const icon = menuToggleBtn.querySelector('i');
+        if (icon) {
+            if (isOpen) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+    });
+
+    // Resetear el estado si la pantalla se agranda más allá del punto de ruptura móvil
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768 && mainNav.classList.contains('nav-open')) {
+            mainNav.classList.remove('nav-open');
+            menuToggleBtn.setAttribute('aria-expanded', 'false');
+            const icon = menuToggleBtn.querySelector('i');
+            if (icon) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
     });
 }

@@ -179,3 +179,92 @@
         text-align: left;
     }
 }
+
+/* ==========================================================================
+   ESTILOS DEL COMPONENTE NAV RESPONSIVO
+   ========================================================================== */
+
+/* Por defecto en Escritorio (PC) el botón es invisible */
+.menu-toggle-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-color, #333);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+}
+
+.menu-toggle-btn:hover {
+    color: var(--primary-color);
+}
+
+/* Media Query para Tablets y Celulares (Pantallas angostas) */
+@media (max-width: 768px) {
+    .main-header {
+        position: relative; /* Bloque de contención para el menú absoluto */
+    }
+
+    /* Mostrar botón hamburguesa */
+    .menu-toggle-btn {
+        display: block;
+        order: 2; /* Forzar orden posicional al lado de las acciones */
+    }
+
+    .header-actions {
+        order: 3;
+    }
+
+    /* Transformar el menú de navegación en un panel flotante desplegable */
+    .main-nav {
+        display: none; /* Oculto por defecto */
+        position: absolute;
+        top: 100%; /* Se posiciona exactamente debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--header-bg, #ffffff);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        padding: 1.5rem 0;
+        z-index: 999;
+    }
+
+    /* Clase que inyecta JavaScript al hacer click */
+    .main-nav.nav-open {
+        display: block;
+        animation: slideDownMenu 0.25s ease-out forwards;
+    }
+
+    /* Reestructurar la lista horizontal de PC a vertical para celular */
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        padding: 0;
+        margin: 0;
+    }
+
+    .main-nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .main-nav ul li a {
+        display: block;
+        padding: 0.6rem 0;
+        font-size: 1.1rem;
+    }
+}
+
+/* Animación de entrada fluida para el menú desplegable */
+@keyframes slideDownMenu {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

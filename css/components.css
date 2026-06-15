@@ -3,7 +3,9 @@
    ========================================================================== */
 
 /* --- 1. COMPONENTE: BOTONES --- */
-.btn-cta, .btn-submit, .btn-submit-large {
+.btn-cta,
+.btn-submit,
+.btn-submit-large {
     display: inline-block;
     background-color: var(--primary-color);
     color: #ffffff;
@@ -96,10 +98,12 @@
 .hero-carousel {
     position: relative;
     width: 100%;
-    height: 60vh; /* Altura adaptativa en móviles */
+    height: 60vh;
+    /* Altura adaptativa en móviles */
     min-height: 400px;
     overflow: hidden;
-    background-color: #000; /* Evita destellos blancos durante transiciones */
+    background-color: #000;
+    /* Evita destellos blancos durante transiciones */
 }
 
 .carousel-track-container {
@@ -121,7 +125,8 @@
     height: 100%;
     opacity: 0;
     z-index: 1;
-    transition: opacity 0.8s ease-in-out; /* Transición suave requerida */
+    transition: opacity 0.8s ease-in-out;
+    /* Transición suave requerida */
 }
 
 .carousel-slide.active {
@@ -132,8 +137,10 @@
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorte inteligente adaptativo */
-    filter: brightness(55%); /* Filtro oscuro para garantizar contraste de texto */
+    object-fit: cover;
+    /* Recorte inteligente adaptativo */
+    filter: brightness(55%);
+    /* Filtro oscuro para garantizar contraste de texto */
 }
 
 /* Captions / Textos del Hero */
@@ -185,14 +192,30 @@
     background-color: var(--primary-color);
 }
 
-.btn-prev { left: var(--spacing-sm); }
-.btn-next { right: var(--spacing-sm); }
+.btn-prev {
+    left: var(--spacing-sm);
+}
+
+.btn-next {
+    right: var(--spacing-sm);
+}
 
 @media (min-width: 768px) {
-    .hero-carousel { height: 75vh; }
-    .carousel-caption p { font-size: 1.3rem; }
-    .btn-prev { left: var(--spacing-md); }
-    .btn-next { right: var(--spacing-md); }
+    .hero-carousel {
+        height: 75vh;
+    }
+
+    .carousel-caption p {
+        font-size: 1.3rem;
+    }
+
+    .btn-prev {
+        left: var(--spacing-md);
+    }
+
+    .btn-next {
+        right: var(--spacing-md);
+    }
 }
 
 
@@ -254,11 +277,13 @@
 
 .auth-form {
     padding: var(--spacing-md);
-    display: none; /* Oculto por defecto */
+    display: none;
+    /* Oculto por defecto */
 }
 
 .auth-form.active-form {
-    display: block; /* Solo se renderiza el formulario activo */
+    display: block;
+    /* Solo se renderiza el formulario activo */
 }
 
 .auth-form h3 {
@@ -309,7 +334,9 @@ textarea {
 }
 
 /* Estados de Enfoque (Focus) */
-input:focus, select:focus, textarea:focus {
+input:focus,
+select:focus,
+textarea:focus {
     outline: none;
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
@@ -320,12 +347,14 @@ input:focus, select:focus, textarea:focus {
 }
 
 /* Clases de Control Dinámico inyectadas por JS */
-input.invalid, select.invalid {
+input.invalid,
+select.invalid {
     border-color: var(--color-error) !important;
     background-color: rgba(231, 76, 60, 0.03);
 }
 
-input.valid, select.valid {
+input.valid,
+select.valid {
     border-color: var(--color-success) !important;
     background-color: rgba(46, 204, 113, 0.03);
 }

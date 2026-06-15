@@ -8,7 +8,8 @@
     border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
-    z-index: 1000; /* Asegura que se mantenga sobre el carrusel */
+    z-index: 1000;
+    /* Asegura que se mantenga sobre el carrusel */
     box-shadow: var(--box-shadow);
     transition: var(--transition-smooth);
 }
@@ -105,7 +106,8 @@
 /* Grid dinámico para los campos del formulario */
 .form-row {
     display: grid;
-    grid-template-columns: 1fr; /* 1 Sola columna en dispositivos móviles */
+    grid-template-columns: 1fr;
+    /* 1 Sola columna en dispositivos móviles */
     gap: var(--spacing-sm);
     margin-bottom: var(--spacing-sm);
 }
@@ -123,7 +125,8 @@
     }
 
     .form-row {
-        grid-template-columns: repeat(2, 1fr); /* 2 Columnas idénticas en Escritorio */
+        grid-template-columns: repeat(2, 1fr);
+        /* 2 Columnas idénticas en Escritorio */
         gap: var(--spacing-md);
     }
 }
@@ -132,7 +135,8 @@
 /* --- 4. PIE DE PÁGINA SEMÁNTICO (FOOTER) --- */
 .main-footer {
     background-color: var(--secondary-color);
-    color: #ffffff; /* El footer mantiene contraste fijo */
+    color: #ffffff;
+    /* El footer mantiene contraste fijo */
     padding: var(--spacing-md) 0;
     margin-top: var(--spacing-lg);
 }
@@ -163,7 +167,8 @@
 
 .social-nav a:hover {
     color: var(--primary-color);
-    transform: translateY(-3px); /* Pequeño salto interactivo */
+    transform: translateY(-3px);
+    /* Pequeño salto interactivo */
 }
 
 /* Ajustes de Layout para Escritorio (Footer) */

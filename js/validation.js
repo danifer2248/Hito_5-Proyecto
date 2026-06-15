@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (globalFeedback) {
             globalFeedback.textContent = "🐾 ¡Solicitud enviada con éxito! Nuestro equipo se pondrá en contacto contigo pronto.";
             globalFeedback.className = "form-feedback success";
-            
+
             // Hacer scroll suave automático hacia el mensaje de éxito global
             globalFeedback.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }

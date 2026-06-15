@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Componentes del DOM - Vistas de Sesión
     const viewLoggedOut = document.getElementById('auth-logged-out');
     const viewLoggedIn = document.getElementById('auth-logged-in');
-    
+
     // Componentes del DOM - Perfil en Header
     const userProfileHeader = document.getElementById('user-profile');
     const userDisplayName = document.getElementById('user-display-name');
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const mockUsers = JSON.parse(localStorage.getItem('mock_users'));
-            
+
             // Verificar duplicados
             if (mockUsers.some(u => u.email === email)) {
                 alert('Este correo ya se encuentra registrado.');
@@ -138,7 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (session) {
             // CONTROL DE INTERFAZ: USUARIO LOGUEADO
-            
+
             // Ocultar formularios de ingreso y mostrar mensaje de bienvenida
             if (viewLoggedOut) viewLoggedOut.classList.add('hidden');
             if (viewLoggedIn) viewLoggedIn.classList.remove('hidden');
@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (navAuthLink) navAuthLink.classList.add('hidden');
             if (userProfileHeader) userProfileHeader.classList.remove('hidden');
             if (userDisplayName) userDisplayName.textContent = `${session.name} (${session.role})`;
-            
+
             // Rellenar automáticamente campos del formulario de adopción si es un Adoptante
             const adoptNameInput = document.getElementById('adopt-name');
             const adoptEmailInput = document.getElementById('adopt-email');
@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } else {
             // CONTROL DE INTERFAZ: INVITADO (NO LOGUEADO)
-            
+
             // Mostrar formularios, ocultar panel de sesión activa
             if (viewLoggedOut) viewLoggedOut.classList.remove('hidden');
             if (viewLoggedIn) viewLoggedIn.classList.add('hidden');

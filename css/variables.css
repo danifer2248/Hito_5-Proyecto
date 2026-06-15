@@ -3,27 +3,41 @@
    ========================================================================== */
 
 /* Tema Claro por Defecto */
-:root, html[data-theme="light"] {
+:root,
+html[data-theme="light"] {
     /* Colores de Marca (Cálidos y Amigables) */
-    --primary-color: #e67e22;       /* Naranja cálido principal */
-    --primary-hover: #d35400;       /* Naranja más oscuro para interacciones */
-    --secondary-color: #2c3e50;     /* Azul grisáceo para textos fuertes y contraste */
-    --accent-color: #f1c40f;        /* Amarillo/Ámbar para detalles y alertas */
-    
+    --primary-color: #e67e22;
+    /* Naranja cálido principal */
+    --primary-hover: #d35400;
+    /* Naranja más oscuro para interacciones */
+    --secondary-color: #2c3e50;
+    /* Azul grisáceo para textos fuertes y contraste */
+    --accent-color: #f1c40f;
+    /* Amarillo/Ámbar para detalles y alertas */
+
     /* Colores de Fondo (Layout) */
-    --bg-main: #fdfbf7;             /* Fondo general (crema muy suave) */
-    --bg-card: #ffffff;             /* Fondo de tarjetas y contenedores */
-    --bg-muted: #f5efe6;            /* Fondo de secciones secundarias */
-    --bg-highlight: #fef5ec;        /* Fondo sutil para destacar módulos (como login) */
+    --bg-main: #fdfbf7;
+    /* Fondo general (crema muy suave) */
+    --bg-card: #ffffff;
+    /* Fondo de tarjetas y contenedores */
+    --bg-muted: #f5efe6;
+    /* Fondo de secciones secundarias */
+    --bg-highlight: #fef5ec;
+    /* Fondo sutil para destacar módulos (como login) */
 
     /* Colores de Texto */
-    --text-main: #2d3748;           /* Texto principal (Gris oscuro, evita el negro puro) */
-    --text-muted: #718096;          /* Texto secundario o leyendas */
-    --text-light: #ffffff;          /* Texto sobre fondos oscuros o botones */
+    --text-main: #2d3748;
+    /* Texto principal (Gris oscuro, evita el negro puro) */
+    --text-muted: #718096;
+    /* Texto secundario o leyendas */
+    --text-light: #ffffff;
+    /* Texto sobre fondos oscuros o botones */
 
     /* Estados de Validación */
-    --color-success: #2ecc71;       /* Verde para estados válidos y éxito */
-    --color-error: #e74c3c;         /* Rojo para mensajes de error dinámicos */
+    --color-success: #2ecc71;
+    /* Verde para estados válidos y éxito */
+    --color-error: #e74c3c;
+    /* Rojo para mensajes de error dinámicos */
 
     /* Efectos Visuales */
     --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -34,25 +48,34 @@
 /* Tema Oscuro (Se activa dinámicamente con JavaScript) */
 html[data-theme="dark"] {
     /* Colores de Marca Ajustados para Pantallas Oscuras */
-    --primary-color: #ff9f43;       /* Naranja ligeramente más brillante */
-    --primary-hover: #ffb167;       
-    --secondary-color: #ecf0f1;     
+    --primary-color: #ff9f43;
+    /* Naranja ligeramente más brillante */
+    --primary-hover: #ffb167;
+    --secondary-color: #ecf0f1;
     --accent-color: #f39c12;
 
     /* Colores de Fondo (Invertidos para confort visual) */
-    --bg-main: #121212;             /* Fondo oscuro profundo */
-    --bg-card: #1e1e1e;             /* Gris superficie para tarjetas */
-    --bg-muted: #252525;            /* Gris para secciones alternas */
-    --bg-highlight: #2c2520;        /* Tono marrón/oscuro cálido para destacar */
+    --bg-main: #121212;
+    /* Fondo oscuro profundo */
+    --bg-card: #1e1e1e;
+    /* Gris superficie para tarjetas */
+    --bg-muted: #252525;
+    /* Gris para secciones alternas */
+    --bg-highlight: #2c2520;
+    /* Tono marrón/oscuro cálido para destacar */
 
     /* Colores de Texto */
-    --text-main: #f3f4f6;           /* Blanco roto para lectura cómoda */
-    --text-muted: #9ca3af;          /* Gris claro para texto secundario */
-    --text-light: #121212;          /* Texto oscuro para usar sobre botones claros */
+    --text-main: #f3f4f6;
+    /* Blanco roto para lectura cómoda */
+    --text-muted: #9ca3af;
+    /* Gris claro para texto secundario */
+    --text-light: #121212;
+    /* Texto oscuro para usar sobre botones claros */
 
     /* Estados de Validación Adaptados */
     --color-success: #2ea44f;
-    --color-error: #ff6b6b;         /* Rojo más claro para que resalte en fondo oscuro */
+    --color-error: #ff6b6b;
+    /* Rojo más claro para que resalte en fondo oscuro */
 
     /* Efectos Visuales Adaptados */
     --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
@@ -64,7 +87,7 @@ html[data-theme="dark"] {
 :root {
     /* Tipografía */
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    
+
     /* Bordes y Esquinas (Look amigable y redondeado) */
     --border-radius-sm: 4px;
     --border-radius-md: 8px;

@@ -40,7 +40,7 @@ function initScrollReveal() {
             // Validar si el elemento ha entrado en la zona de intersección
             if (entry.isIntersecting) {
                 entry.target.classList.add('revealed');
-                
+
                 // Patrón de optimización Senior: Dejamos de observar el elemento ya animado 
                 // para liberar memoria RAM y ciclos de procesamiento de la CPU.
                 observer.unobserve(entry.target);
@@ -62,9 +62,9 @@ function initAnchorOptimization() {
     const structuralLinks = document.querySelectorAll('a[href^="#"]');
 
     structuralLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
+        link.addEventListener('click', function (e) {
             const targetSelector = this.getAttribute('href');
-            
+
             // Salvaguarda por si el href está vacío o es un enlace muerto de retorno
             if (targetSelector === '#') return;
 
@@ -82,7 +82,7 @@ function initAnchorOptimization() {
                 // Gestión de accesibilidad (Mover el foco real para lectores de pantalla)
                 setTimeout(() => {
                     targetSection.focus({ preventScroll: true });
-                    
+
                     // Si el elemento no es enfocable nativamente (como un <section>), le inyectamos dinámicamente un tabindex alterno
                     if (document.activeElement !== targetSection) {
                         targetSection.setAttribute('tabindex', '-1');

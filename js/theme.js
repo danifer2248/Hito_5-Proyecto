@@ -17,7 +17,7 @@ document.documentElement.setAttribute('data-theme', initialTheme);
 // Esperar a que los elementos del DOM estén accesibles para vincular los eventos interctivos
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
-    
+
     if (!themeToggleBtn) return;
 
     // Sincronizar el estado inicial del icono del botón según el tema activo
@@ -31,10 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // 1. Aplicar el tema en tiempo real en la etiqueta raíz (<html>)
         document.documentElement.setAttribute('data-theme', newTheme);
-        
+
         // 2. Persistir de forma permanente la selección en el navegador del cliente
         localStorage.setItem('theme', newTheme);
-        
+
         // 3. Actualizar la estética del icono vectorial
         updateToggleIcon(newTheme, themeToggleBtn);
     });

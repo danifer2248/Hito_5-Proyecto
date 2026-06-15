@@ -30,16 +30,29 @@ body {
 }
 
 /* Tipografía Semántica y Escalable */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
     color: var(--secondary-color);
     font-weight: 700;
     line-height: 1.2;
     transition: color 0.4s ease;
 }
 
-h1 { font-size: 2.2rem; }
-h2 { font-size: 1.8rem; margin-bottom: var(--spacing-sm); }
-h3 { font-size: 1.4rem; margin-bottom: var(--spacing-xs); }
+h1 {
+    font-size: 2.2rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+h3 {
+    font-size: 1.4rem;
+    margin-bottom: var(--spacing-xs);
+}
 
 p {
     margin-bottom: var(--spacing-sm);
@@ -86,8 +99,14 @@ ul {
         padding-right: var(--spacing-md);
         padding-left: var(--spacing-md);
     }
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2.4rem; }
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2.4rem;
+    }
 }
 
 /* Espaciados y Alineaciones estándares */
@@ -137,7 +156,8 @@ ul {
     opacity: 0;
     transform: translateY(30px);
     transition: var(--transition-reveal);
-    will-change: transform, opacity; /* Optimización de rendimiento para GPU */
+    will-change: transform, opacity;
+    /* Optimización de rendimiento para GPU */
 }
 
 /* Estado activo: Se inyecta mediante JS cuando entra en el Viewport */

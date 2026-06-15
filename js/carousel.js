@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function startAutoPlay() {
         // Limpiar cualquier intervalo previo para evitar duplicaciones de procesos en segundo plano
         if (autoPlayInterval) clearInterval(autoPlayInterval);
-        
+
         autoPlayInterval = setInterval(() => {
             changeSlide(currentSlideIndex + 1);
         }, AUTO_PLAY_DELAY);

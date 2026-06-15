@@ -1,0 +1,147 @@
+/* ==========================================================================
+   RESET MODERNO Y ESTILOS BASE GLOBALES (Mobile-First)
+   ========================================================================== */
+
+/* Coherencia en el cálculo de tamaños con box-sizing */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Suavizado de scroll nativo para los anclajes internos */
+html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+}
+
+/* Configuración del cuerpo con transiciones para Modo Oscuro */
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: var(--transition-smooth);
+}
+
+/* Tipografía Semántica y Escalable */
+h1, h2, h3, h4 {
+    color: var(--secondary-color);
+    font-weight: 700;
+    line-height: 1.2;
+    transition: color 0.4s ease;
+}
+
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.8rem; margin-bottom: var(--spacing-sm); }
+h3 { font-size: 1.4rem; margin-bottom: var(--spacing-xs); }
+
+p {
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Elementos de Enlace e Interactivos */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ==========================================================================
+   CLASES UTILITARIAS GLOBALES
+   ========================================================================== */
+
+/* Contenedor adaptativo centralizado */
+.container {
+    width: 100%;
+    padding-right: var(--spacing-sm);
+    padding-left: var(--spacing-sm);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* Breakpoint base para escritorio en contenedores */
+@media (min-width: 768px) {
+    .container {
+        max-width: 1140px;
+        padding-right: var(--spacing-md);
+        padding-left: var(--spacing-md);
+    }
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.4rem; }
+}
+
+/* Espaciados y Alineaciones estándares */
+.section-padding {
+    padding: var(--spacing-md) 0;
+}
+
+@media (min-width: 768px) {
+    .section-padding {
+        padding: var(--spacing-lg) 0;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Subtítulos de sección decorativos */
+.section-subtitle {
+    display: block;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: var(--spacing-xs);
+}
+
+.lead-text {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ==========================================================================
+   HOOKS DE ANIMACIÓN (Scroll Reveal - Intersection Observer)
+   ========================================================================== */
+
+/* Estado inicial: El elemento está oculto y desplazado hacia abajo */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: var(--transition-reveal);
+    will-change: transform, opacity; /* Optimización de rendimiento para GPU */
+}
+
+/* Estado activo: Se inyecta mediante JS cuando entra en el Viewport */
+.reveal-element.revealed {
+    opacity: 1;
+    transform: translateY(0);
+}

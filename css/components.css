@@ -1,493 +1,196 @@
 /* ==========================================================================
-   ESTILOS DE COMPONENTES AISLADOS (Huellas Felices)
+   COMPONENTES INTERACTIVOS Y REUTILIZABLES (Huellas Felices)
    ========================================================================== */
 
-/* --- 1. COMPONENTE: BOTONES --- */
-.btn-cta,
-.btn-submit,
-.btn-submit-large {
+/* --- 1. BOTONES DEL SISTEMA --- */
+.btn {
     display: inline-block;
-    background-color: var(--primary-color);
-    color: #ffffff;
+    padding: 0.75rem 1.5rem;
     font-weight: 700;
-    border: none;
-    border-radius: var(--border-radius-md);
-    cursor: pointer;
-    text-align: center;
-    transition: var(--transition-fast);
-}
-
-.btn-cta {
-    padding: 0.8rem 1.8rem;
     font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(230, 126, 34, 0.4);
-}
-
-.btn-cta:hover {
-    background-color: var(--primary-hover);
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-.btn-submit {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-}
-
-.btn-submit:hover {
-    background-color: var(--primary-hover);
-}
-
-.btn-submit-large {
-    padding: 1rem 2.5rem;
-    font-size: 1.1rem;
-    margin-top: var(--spacing-sm);
-    box-shadow: var(--box-shadow);
-}
-
-.btn-submit-large:hover {
-    background-color: var(--primary-hover);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-hover);
-}
-
-/* Conmutador de Tema (Claro/Oscuro) */
-.theme-toggle {
-    background: none;
-    border: 2px solid var(--border-color);
-    color: var(--primary-color);
-    width: 40px;
-    height: 40px;
-    border-radius: var(--border-radius-round);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.1rem;
-    transition: var(--transition-smooth);
-}
-
-.theme-toggle:hover {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    border-color: var(--primary-color);
-}
-
-/* Botón de Salida (Logout) */
-.btn-logout {
-    background-color: transparent;
-    border: 1px solid var(--color-error);
-    color: var(--color-error);
-    padding: 0.2rem 0.6rem;
-    border-radius: var(--border-radius-sm);
-    font-size: 0.8rem;
-    cursor: pointer;
-    font-weight: 600;
-    margin-left: 0.5rem;
-    transition: var(--transition-fast);
-}
-
-.btn-logout:hover {
-    background-color: var(--color-error);
-    color: #ffffff;
-}
-
-
-/* --- 2. COMPONENTE: CARRUSEL HERO (FADE SLIDER NATIVO) --- */
-.hero-carousel {
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    /* Altura adaptativa en móviles */
-    min-height: 400px;
-    overflow: hidden;
-    background-color: #000;
-    /* Evita destellos blancos durante transiciones */
-}
-
-.carousel-track-container {
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-track {
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.carousel-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 1;
-    transition: opacity 0.8s ease-in-out;
-    /* Transición suave requerida */
-}
-
-.carousel-slide.active {
-    opacity: 1;
-    z-index: 2;
-}
-
-.carousel-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    /* Recorte inteligente adaptativo */
-    filter: brightness(55%);
-    /* Filtro oscuro para garantizar contraste de texto */
-}
-
-/* Captions / Textos del Hero */
-.carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 85%;
-    max-width: 800px;
-    color: #ffffff;
-    text-align: center;
-    z-index: 3;
-}
-
-.carousel-caption h1 {
-    color: #ffffff;
-    margin-bottom: var(--spacing-sm);
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-}
-
-.carousel-caption p {
-    font-size: 1.1rem;
-    margin-bottom: var(--spacing-md);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* Flechas de Navegación */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #ffffff;
+    border-radius: var(--border-radius-md, 8px);
     border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: var(--border-radius-round);
     cursor: pointer;
-    font-size: 1.2rem;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: var(--transition-fast);
-}
-
-.carousel-btn:hover {
-    background-color: var(--primary-color);
-}
-
-.btn-prev {
-    left: var(--spacing-sm);
-}
-
-.btn-next {
-    right: var(--spacing-sm);
-}
-
-@media (min-width: 768px) {
-    .hero-carousel {
-        height: 75vh;
-    }
-
-    .carousel-caption p {
-        font-size: 1.3rem;
-    }
-
-    .btn-prev {
-        left: var(--spacing-md);
-    }
-
-    .btn-next {
-        right: var(--spacing-md);
-    }
-}
-
-
-/* --- 3. COMPONENTE: MÓDULO DE PROPUESTA DE VALOR --- */
-.value-proposition {
-    background-color: var(--bg-card);
-    padding: var(--spacing-md);
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--box-shadow);
-    margin-top: var(--spacing-md);
-    border-left: 5px solid var(--primary-color);
-    transition: var(--transition-smooth);
-}
-
-.highlight-text {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-bottom: var(--spacing-xs);
-}
-
-
-/* --- 4. COMPONENTE: TARJETA DE AUTENTICACIÓN (LOGIN/REGISTRO) --- */
-.auth-box-container {
-    background-color: var(--bg-card);
-    width: 100%;
-    max-width: 450px;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--box-shadow);
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-    transition: var(--transition-smooth);
-}
-
-.auth-tabs {
-    display: flex;
-    background-color: var(--bg-muted);
-    border-bottom: 1px solid var(--border-color);
-    transition: var(--transition-smooth);
-}
-
-.auth-tab {
-    flex: 1;
-    padding: 1rem;
-    background: none;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--text-muted);
-    cursor: pointer;
-    transition: var(--transition-fast);
-}
-
-.auth-tab.active {
-    background-color: var(--bg-card);
-    color: var(--primary-color);
-    border-bottom: 2px solid var(--primary-color);
-}
-
-.auth-form {
-    padding: var(--spacing-md);
-    display: none;
-    /* Oculto por defecto */
-}
-
-.auth-form .btn-submit {
-    margin-top: 1.5rem; /* Equivale a unos 24px de separación */
-    width: 100%;        /* Asegura que ocupe todo el ancho del contenedor */
-    display: block;     /* Cambia el comportamiento de línea a bloque para aplicar bien el margen */
-}
-
-/* Por si acaso, asegúrate de que los grupos de formulario tengan su propia separación */
-.auth-form .form-group {
-    margin-bottom: 1.2rem; /* Separación saludable entre el email y la contraseña */
-}
-
-.auth-form.active-form {
-    display: block;
-    /* Solo se renderiza el formulario activo */
-}
-
-.auth-form h3 {
     text-align: center;
-    margin-bottom: var(--spacing-sm);
-}
-
-.success-icon {
-    font-size: 3.5rem;
-    color: var(--color-success);
-    margin-bottom: var(--spacing-sm);
-}
-
-.info-text {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-top: var(--spacing-xs);
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-main);
-    background-color: var(--bg-muted);
-    padding: 0.3rem 0.6rem;
-    border-radius: var(--border-radius-md);
-}
-
-
-/* --- 5. COMPONENTE: INPUTS Y MENSAJES DE ERROR --- */
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-select,
-textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    background-color: var(--bg-main);
-    color: var(--text-main);
-    font-family: var(--font-main);
-    font-size: 0.95rem;
-    transition: var(--transition-fast);
-}
-
-/* Estados de Enfoque (Focus) */
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.2);
-}
-
-.required {
-    color: var(--color-error);
-}
-
-/* Clases de Control Dinámico inyectadas por JS */
-input.invalid,
-select.invalid {
-    border-color: var(--color-error) !important;
-    background-color: rgba(231, 76, 60, 0.03);
-}
-
-input.valid,
-select.valid {
-    border-color: var(--color-success) !important;
-    background-color: rgba(46, 204, 113, 0.03);
-}
-
-/* Espacio reservado para el mensaje de error para evitar saltos bruscos en el DOM */
-.error-message {
-    color: var(--color-error);
-    font-size: 0.8rem;
-    font-weight: 600;
-    min-height: 18px;
-    display: block;
-    margin-top: 2px;
-}
-
-/* Feedback Global Post-Envío */
-.form-feedback {
-    padding: 1rem;
-    border-radius: var(--border-radius-md);
-    margin-bottom: var(--spacing-sm);
-    font-weight: 600;
-    text-align: center;
-}
-
-.form-feedback.success {
-    background-color: rgba(46, 204, 113, 0.15);
-    color: var(--color-success);
-    border: 1px solid var(--color-success);
-}
-
-/* Rejilla de tarjetas */
-.dogs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2.5rem;
-}
-
-/* Tarjeta individual */
-.dog-card {
-    background-color: var(--card-bg, #ffffff);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.dog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-}
-
-/* Contenedor de Imagen y Badge */
-.dog-image-container {
-    position: relative;
-    height: 240px;
-}
-
-.dog-image-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.dog-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    padding: 0.4rem 1rem;
-    border-radius: 50px;
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: #fff;
-}
-
-.badge-puppy { background-color: #3498db; }
-.badge-young { background-color: #2ecc71; }
-.badge-adult { background-color: #f39c12; }
-
-/* Contenido de texto */
-.dog-card-content {
-    padding: 1.5rem;
-}
-
-.dog-features {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0;
-    font-size: 0.95rem;
-}
-
-.dog-features li {
-    margin-bottom: 0.5rem;
-}
-
-.dog-features i {
-    color: var(--primary-color);
-    margin-right: 0.5rem;
-    width: 18px;
-}
-
-.dog-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin-bottom: 1.5rem;
-    color: var(--text-muted, #666);
-}
-
-/* Botón de Adopción */
-.btn-card-adopt {
-    display: block;
-    text-align: center;
-    background-color: var(--primary-color);
-    color: white;
-    padding: 0.8rem;
-    border-radius: 8px;
     text-decoration: none;
-    font-weight: bold;
+    transition: var(--transition-smooth, all 0.3s ease);
+}
+
+/* Botón primario (Naranja) */
+.btn-primary {
+    background-color: var(--primary-color, #ff8400);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark, #d35400);
+    transform: translateY(-2px);
+}
+
+/* Botón específico de la tarjeta de adopción ("Apoya ya") */
+.btn-card-adopt {
+    background-color: var(--primary-color, #ff8400);
+    color: #ffffff;
+    width: 100%;
+    display: block;
+    padding: 0.6rem 1.2rem;
+    border-radius: var(--border-radius-md, 6px);
+    text-align: center;
+    font-weight: 700;
+    text-decoration: none;
     transition: background-color 0.2s ease;
 }
 
+/* CORRECCIÓN: Las letras se mantienen blancas y legibles en el hover */
 .btn-card-adopt:hover {
     background-color: var(--primary-dark, #d35400);
-    color: #ffebdc !important; /* Un tono crema / naranja pastel muy claro de alta visibilidad */
+    color: #ffffff !important;
     text-decoration: none;
+}
+
+
+/* --- 2. COMPONENTES DE FORMULARIO DE AUTENTICACIÓN (ingresar.html / registrar.html) --- */
+.auth-form {
+    width: 100%;
+}
+
+/* CORRECCIÓN: Separación saludable entre el email y la contraseña */
+.auth-form .form-group {
+    margin-bottom: 1.2rem;
+}
+
+.auth-form input[type="email"],
+.auth-form input[type="password"],
+.auth-form input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--border-color, #ccc);
+    border-radius: var(--border-radius-md, 6px);
+    background-color: var(--bg-card, #ffffff);
+    color: var(--text-color, #333);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.auth-form input:focus {
+    outline: none;
+    border-color: var(--primary-color, #ff8400);
+    box-shadow: 0 0 0 3px rgba(255, 132, 0, 0.15);
+}
+
+/* CORRECCIÓN: El botón "Ingresar" ya no está pegado al campo de contraseña */
+.auth-form .btn-submit {
+    margin-top: 1.5rem;
+    width: 100%;
+    display: block;
+    background-color: var(--primary-color, #ff8400);
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.8rem;
+    border-radius: var(--border-radius-md, 6px);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.auth-form .btn-submit:hover {
+    background-color: var(--primary-dark, #d35400);
+}
+
+
+/* --- 3. TARJETAS DE PERROS (perros.html) --- */
+.card,
+.dog-card,
+.card-perro {
+    background-color: var(--bg-card, #ffffff);
+    border: 1px solid var(--border-color, #e1e1e1);
+    border-radius: var(--border-radius-lg, 12px);
+    overflow: hidden;
+    box-shadow: var(--box-shadow, 0 4px 6px rgba(0, 0, 0, 0.05));
+    transition: var(--transition-smooth, transform 0.3s ease, box-shadow 0.3s ease);
+    display: flex;
+    flex-direction: column;
+}
+
+.card:hover,
+.dog-card:hover,
+.card-perro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card:hover .card-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.card-content,
+.dog-card-content {
+    padding: var(--spacing-md, 1.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex-grow: 1;
+}
+
+.card-content h3,
+.card-perro h3 {
+    margin: 0;
+    font-size: 1.3rem;
+    color: var(--secondary-color, #2c3e50);
+}
+
+.card-content p,
+.card-perro p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted, #666);
+    line-height: 1.4;
+}
+
+
+/* ==========================================================================
+   ÓPTIMIZACIONES EXCLUSIVAS PARA MODO OSCURO ([data-theme="dark"])
+   ========================================================================== */
+
+/* CORRECCIÓN: Fondo oscuro para las tarjetas evitando el camuflaje de las letras claras */
+[data-theme="dark"] .card,
+[data-theme="dark"] .dog-card,
+[data-theme="dark"] .card-perro {
+    background-color: #242424 !important;
+    border: 1px solid #3d3d3d !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Títulos ultra legibles en modo oscuro */
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .dog-card h3,
+[data-theme="dark"] .card-perro h3 {
+    color: #ffffff !important;
+}
+
+/* Textos descriptivos con un gris claro suave de alta lectura */
+[data-theme="dark"] .card p,
+[data-theme="dark"] .dog-card p,
+[data-theme="dark"] .card-perro p {
+    color: #e0e0e0 !important;
+}
+
+/* Selectores de datos o detalles pequeños */
+[data-theme="dark"] .card span,
+[data-theme="dark"] .dog-card span {
+    color: #b3b3b3 !important;
 }

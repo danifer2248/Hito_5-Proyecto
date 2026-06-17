@@ -248,6 +248,7 @@
     border: 1px solid var(--border-color);
     overflow: hidden;
     transition: var(--transition-smooth);
+    text-align: center; /* Asegura el centrado de elementos internos */
 }
 
 .auth-tabs {
@@ -278,20 +279,27 @@
 .auth-form {
     padding: var(--spacing-md);
     display: none;
-    /* Oculto por defecto */
+    text-align: left; /* Mantiene los inputs del formulario alineados a la izquierda */
 }
 
-/* Modificado: Añadido soporte para el botón de adopción y margen inferior */
-.auth-form .btn-submit,
+/* El botón de "Iniciar Sesión / Registrarse" sí ocupa todo el ancho */
+.auth-form .btn-submit {
+    margin-top: 1.5rem; 
+    width: 100%;        
+    display: block;     
+}
+
+/* El botón "Ir al formulario" (Post-Login) ahora tiene ancho propio y se centra */
 .auth-box-container .btn-cta,
 .auth-box-container .btn-submit-large {
-    margin-top: 1.5rem; 
-    margin-bottom: 0.5rem; /* Separación preventiva */
-    width: 100%;        /* Asegura que ocupe todo el ancho del contenedor */
-    display: block;     /* Cambia a bloque para aplicar correctamente los márgenes */
+    display: block;
+    width: fit-content;          /* El ancho se adapta al texto del botón */
+    min-width: 240px;            /* Evita que se encoja demasiado */
+    margin: 1.5rem auto 0.5rem auto; /* El 'auto' a los lados lo centra perfectamente */
+    padding: 0.8rem 2rem;        /* Margen interno para que respire el texto */
 }
 
-/* Por si acaso, asegúrate de que los grupos de formulario tengan su propia separación */
+/* Separación de los grupos del formulario */
 .auth-form .form-group {
     margin-bottom: 1.2rem; 
 }
@@ -309,35 +317,37 @@
     font-size: 3.5rem;
     color: var(--color-success);
     margin-bottom: var(--spacing-sm);
+    display: block;
 }
 
 .info-text {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-top: var(--spacing-xs);
+    display: block;
 }
 
 .user-profile {
-    display: flex;
+    display: inline-flex; /* Cambiado a inline-flex para que no rompa el centrado */
     align-items: center;
+    justify-content: center;
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-main);
     background-color: var(--bg-muted);
-    padding: 0.3rem 0.6rem;
+    padding: 0.4rem 0.8rem;
     border-radius: var(--border-radius-md);
+    margin-top: var(--spacing-xs);
 }
 
 /* ==========================================================================
-   SOLUCIÓN AL BORDE INFERIOR POST-LOGIN (Caja más larga / Botón subido)
+   SOLUCIÓN AL BORDE INFERIOR POST-LOGIN (Caja más larga)
    ========================================================================== */
-/* Forzar que el último elemento (sea botón o enlace) dentro de la caja de login 
-   tenga una separación elegante de 24px (1.5rem) respecto al borde de abajo */
 .auth-box-container > :last-child,
 .auth-form > :last-child,
 .auth-box-container a:last-of-type,
 .auth-box-container button:last-of-type {
-    margin-bottom: 1.5rem !important;
+    margin-bottom: 1.8rem !important; /* Espaciado final perfecto con el borde */
 }
 
 

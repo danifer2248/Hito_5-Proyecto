@@ -281,20 +281,23 @@
     /* Oculto por defecto */
 }
 
-.auth-form .btn-submit {
-    margin-top: 1.5rem; /* Equivale a unos 24px de separación */
+/* Modificado: Añadido soporte para el botón de adopción y margen inferior */
+.auth-form .btn-submit,
+.auth-box-container .btn-cta,
+.auth-box-container .btn-submit-large {
+    margin-top: 1.5rem; 
+    margin-bottom: 0.5rem; /* Separación preventiva */
     width: 100%;        /* Asegura que ocupe todo el ancho del contenedor */
-    display: block;     /* Cambia el comportamiento de línea a bloque para aplicar bien el margen */
+    display: block;     /* Cambia a bloque para aplicar correctamente los márgenes */
 }
 
 /* Por si acaso, asegúrate de que los grupos de formulario tengan su propia separación */
 .auth-form .form-group {
-    margin-bottom: 1.2rem; /* Separación saludable entre el email y la contraseña */
+    margin-bottom: 1.2rem; 
 }
 
 .auth-form.active-form {
     display: block;
-    /* Solo se renderiza el formulario activo */
 }
 
 .auth-form h3 {
@@ -323,6 +326,18 @@
     background-color: var(--bg-muted);
     padding: 0.3rem 0.6rem;
     border-radius: var(--border-radius-md);
+}
+
+/* ==========================================================================
+   SOLUCIÓN AL BORDE INFERIOR POST-LOGIN (Caja más larga / Botón subido)
+   ========================================================================== */
+/* Forzar que el último elemento (sea botón o enlace) dentro de la caja de login 
+   tenga una separación elegante de 24px (1.5rem) respecto al borde de abajo */
+.auth-box-container > :last-child,
+.auth-form > :last-child,
+.auth-box-container a:last-of-type,
+.auth-box-container button:last-of-type {
+    margin-bottom: 1.5rem !important;
 }
 
 

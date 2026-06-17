@@ -491,3 +491,25 @@ select.valid {
     color: #ffebdc !important; /* Un tono crema / naranja pastel muy claro de alta visibilidad */
     text-decoration: none;
 }
+
+
+/* ==========================================================================
+   >>> INYECTADO: OPTIMIZACIÓN DE TARJETAS DE PERROS EN MODO OSCURO <<<
+   ========================================================================== */
+[data-theme="dark"] .dog-card {
+    background-color: #242424 !important; /* Cambia el contenedor blanco a gris oscuro */
+    border: 1px solid #3d3d3d !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .dog-card-content h3 {
+    color: #ffffff !important; /* El nombre del perro se vuelve blanco puro */
+}
+
+[data-theme="dark"] .dog-features li {
+    color: #e0e0e0 !important; /* Los iconos y texto de raza/edad pasan a un gris muy legible */
+}
+
+[data-theme="dark"] .dog-description {
+    color: #b3b3b3 !important; /* La descripción pasa a un gris claro suave que no cansa la vista */
+}

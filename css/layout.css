@@ -181,8 +181,12 @@
 
 .social-nav a {
     color: #ffffff;
-    font-size: 1.3rem;
-    display: inline-block;
+    font-size: 1.2rem;
+    min-width: 48px;
+    min-height: 48px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     transition: var(--transition-fast);
 }
 
@@ -215,8 +219,8 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     transition: var(--transition-fast);
 }
@@ -234,12 +238,16 @@
 /* Por defecto en Escritorio (PC) el botón es invisible */
 .menu-toggle-btn {
     display: none;
+    min-width: 48px;
+    min-height: 48px;
+    align-items: center;
+    justify-content: center;
     background: none;
     border: none;
     color: var(--text-color, #333);
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0;
     transition: color 0.2s ease;
 }
 
@@ -265,7 +273,7 @@
     }
 
     .menu-toggle-btn {
-        display: block; /* Se hace visible */
+        display: inline-flex; /* Se hace visible */
         order: 3;        /* Se posiciona inmediatamente al lado del modo oscuro */
         margin-left: 0.4rem; 
     }

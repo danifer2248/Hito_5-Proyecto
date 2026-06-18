@@ -178,6 +178,8 @@
     border: none;
     width: 45px;
     height: 45px;
+    min-width: 48px;
+    min-height: 48px;
     border-radius: var(--border-radius-round);
     cursor: pointer;
     font-size: 1.2rem;
